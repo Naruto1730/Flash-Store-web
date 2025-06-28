@@ -2,7 +2,7 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8" />
-  <title>متجر المشاريع</title>
+  <title>🚀 متجر المشاريع</title>
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
@@ -18,6 +18,32 @@
     <p>جميع الحقوق محفوظة &copy; 2025</p>
   </footer>
 
-  <script src="scripts/main.js"></script>
+  <!-- ✅ هنا بنحمّل Firebase ونربطها -->
+  <script type="module">
+    // تحميل مكتبة Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+
+    // ✅ بيانات مشروعك في Firebase - غيّرها بقيمك الحقيقية
+    const firebaseConfig = {
+      apiKey: "AIzaSyBk6hBo3IxZyuD4TkqZWKUUH9xXpivaM3s",
+      authDomain: "lohing-chat.firebaseapp.com",
+      databaseURL: "https://lohing-chat-default-rtdb.firebaseio.com/",
+      projectId: "lohing-chat",
+      storageBucket: "lohing-chat.appspot.com.appspot.com",
+      messagingSenderId: "335747332171",
+      appId: "1:335747332171:android:cd023dfc52631f8686b5ce"
+    };
+
+    // تهيئة التطبيق
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    // مشاركة قاعدة البيانات مع باقي الأكواد
+    window.db = database;
+  </script>
+
+  <!-- ✅ سكريبتك الأساسي -->
+  <script type="module" src="scripts/main.js"></script>
 </body>
 </html>

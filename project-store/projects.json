@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "name": "تطبيق المحادثة",
+    "description": "تطبيق دردشة شبيه بواتساب مع ميزة التشفير.",
+    "image": "assets/chat.png",
+    "link": "https://example.com/chat-app.zip"
+  },
+  {
+    "id": "2",
+    "name": "تطبيق الملاحظات",
+    "description": "تطبيق بسيط لحفظ الملاحظات.",
+    "image": "assets/notes.png",
+    "link": "https://example.com/notes-app.zip"
+  }
+]

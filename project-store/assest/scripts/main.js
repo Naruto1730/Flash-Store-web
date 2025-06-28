@@ -11,18 +11,25 @@ if (document.getElementById('projects-container')) {
       const container = document.getElementById('projects-container');
       Object.keys(projects).forEach((key) => {
         const project = projects[key];
+
+        // ✅ استخدام المفاتيح الحقيقية من القاعدة
+        const name = project.title;
+        const description = project.description;
+        const imageURL = project.icon_url;
+        const fileLink = project.project_url;
+
         const card = document.createElement('div');
         card.className = 'project-card';
         card.innerHTML = `
-          <img src="${project.imageURL}" alt="${project.name}">
-          <h3>${project.name}</h3>
-          <p>${project.description}</p>
+          <img src="${imageURL}" alt="${name}">
+          <h3>${name}</h3>
+          <p>${description}</p>
           <a href="project.html?id=${key}"><button>عرض التفاصيل</button></a>
         `;
         container.appendChild(card);
       });
     } else {
-      console.log("لا توجد مشاريع.");
+      console.log("❌ لا توجد مشاريع.");
     }
   }).catch((error) => {
     console.error(error);
@@ -38,15 +45,22 @@ if (document.getElementById('project-details')) {
   get(child(dbRef, `projects/${projectId}`)).then((snapshot) => {
     if (snapshot.exists()) {
       const project = snapshot.val();
+
+      // ✅ نفس التعديل هنا كمان
+      const name = project.title;
+      const description = project.description;
+      const imageURL = project.icon_url;
+      const fileLink = project.project_url;
+
       const details = document.getElementById('project-details');
       details.innerHTML = `
-        <h2>${project.name}</h2>
-        <img src="${project.imageURL}" alt="${project.name}">
-        <p>${project.description}</p>
-        <a href="${project.fileLink}" target="_blank"><button>تحميل المشروع</button></a>
+        <h2>${name}</h2>
+        <img src="${imageURL}" alt="${name}">
+        <p>${description}</p>
+        <a href="${fileLink}" target="_blank"><button>تحميل المشروع</button></a>
       `;
     } else {
-      console.log("المشروع غير موجود.");
+      console.log("❌ المشروع غير موجود.");
     }
   }).catch((error) => {
     console.error(error);
